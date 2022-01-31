@@ -19,7 +19,7 @@ pipeline {
                             sh "echo 'Calling sonar by ID!'"
                             // Run Maven on a Unix agent to execute Sonar.
                             //sh './gradlew sonarqube -Dsonar.projectKey=ejemplo-gradle -Dsonar.java.binaries=build'
-                              sh './gradlew sonarqube -Dsonar.projectKey=ejemplo-gradle -Dsonar.host.url=http://localhost:9000 -Dsonar.login=28f2f4764f0f58e920db4e3c935247f70319aaac'
+                              sh './gradlew sonarqube -Dsonar.projectKey=ejemplo-gradle -Dsonar.host.url=http://sonarqube:9000 -Dsonar.login=28f2f4764f0f58e920db4e3c935247f70319aaac'
                         }
                     }
                     stage("Paso 3: Curl Springboot Gradle sleep 20"){
