@@ -19,7 +19,7 @@ pipeline {
                             sh "echo 'Calling sonar by ID!'"
                             // Run Maven on a Unix agent to execute Sonar.
                             //sh './gradlew sonarqube -Dsonar.projectKey=ejemplo-gradle -Dsonar.java.binaries=build'
-                              sh './gradlew sonarqube -Dsonar.projectKey=ejemplo-gradle -Dsonar.host.url=http://sonarqube:9000'
+                              sh './gradlew sonarqube -Dsonar.projectKey=ejemplo-gradle -Dsonar.host.url=http://sonarqube:9000 -Dsonar.java.binaries=build'
                         }
                     }
                     stage("Paso 3: Curl Springboot Gradle sleep 60"){
@@ -52,7 +52,7 @@ pipeline {
                     stage("Paso 6: Levantar Artefacto Jar"){
                         sh 'nohup bash java -jar DevOpsUsach2020-0.0.1.jar & >/dev/null'
                     }
-                    stage("Paso 7: Testear Artefacto - Dormir(Esperar 20sg) "){
+                    stage("Paso 7: Testear Artefacto - Dormir(Esperar 60sg) "){
                        sh "sleep 60 && curl -X GET 'http://localhost:8081/rest/mscovid/test?msg=testing'"
                     }
                 }
