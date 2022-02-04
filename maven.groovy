@@ -23,10 +23,10 @@ def call(){
           sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=ejemplo-gradle -Dsonar.java.binaries=build'
       }
   }
-  env.TAREA = "Paso 5: Curl Springboot Gradle sleep 20"
+  env.TAREA = "Paso 5: Curl Springboot Gradle sleep 40"
   stage("${env.TAREA}"){
       sh "gradle bootRun&"
-      sh "sleep 20 && curl -X GET 'http://localhost:8081/rest/mscovid/test?msg=testing'"
+      sh "sleep 40 && curl -X GET 'http://localhost:8081/rest/mscovid/test?msg=testing'"
   }
   env.TAREA = "Paso 6: Subir Nexus"
   stage("${env.TAREA}"){
@@ -57,9 +57,9 @@ def call(){
   stage("${env.TAREA}"){
       sh 'nohup bash java -jar DevOpsUsach2020-0.0.1.jar & >/dev/null'
   }
-  env.TAREA = "Paso 9: Testear Artefacto - Dormir(Esperar 20sg) "
+  env.TAREA = "Paso 9: Testear Artefacto - Dormir(Esperar 40sg) "
   stage("${env.TAREA}"){
-      sh "sleep 20 && curl -X GET 'http://localhost:8081/rest/mscovid/test?msg=testing'"
+      sh "sleep 40 && curl -X GET 'http://localhost:8081/rest/mscovid/test?msg=testing'"
   }
 }
 return this;
