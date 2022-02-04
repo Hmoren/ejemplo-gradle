@@ -1,7 +1,7 @@
 /*
-	forma de invocación de método call:
-	def ejecucion = load 'script.groovy'
-	ejecucion.call()
+    forma de invocación de método call:
+    def ejecucion = load 'script.groovy'
+    ejecucion.call()
 */
 def call(){
     env.TAREA = "Paso 1: Compliar"
@@ -10,8 +10,7 @@ def call(){
   }
   env.TAREA = "Paso 2: Testear"
   stage("${env.TAREA}"){
-​
-    sh "mvn clean test -e"
+      sh "mvn clean test -e"
   }
   env.TAREA = "Paso 3: Build .Jar"
   stage("${env.TAREA}"){

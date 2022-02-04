@@ -15,6 +15,7 @@ pipeline {
         stage("Pipeline"){
             steps {
                 script{
+                    sh "env"
                   switch(params.compileTool)
                     {
                         case 'Maven':
