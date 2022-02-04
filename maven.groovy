@@ -23,10 +23,10 @@ def call() {
             sh 'mvn clean verify sonar:sonar -Dsonar.projectKey=ejemplo-gradle -Dsonar.java.binaries=build'
         }
     }
-    env.TAREA = 'Paso 5: Curl Springboot Maven sleep 80'
+    env.TAREA = 'Paso 5: Curl Springboot Maven sleep 100'
     stage("${env.TAREA}") {
         sh 'maven bootRun&'
-        sh "sleep 80 && curl -X GET 'http://localhost:8081/rest/mscovid/test?msg=testing'"
+        sh "sleep 100 && curl -X GET 'http://localhost:8081/rest/mscovid/test?msg=testing'"
     }
     env.TAREA = 'Paso 6: Subir Nexus'
     stage("${env.TAREA}") {
